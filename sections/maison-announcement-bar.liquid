@@ -29,6 +29,8 @@
   .announcement-bar {
     padding: 10px;
     text-align: center;
+    background-color: #0a0a3d;
+    color: #e0e0ff;
   }
   .announcement-blocks {
     display: flex;
@@ -66,12 +68,13 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: transparent;
+    color: #e0e0ff;
     border: none;
     padding: 10px;
     cursor: pointer;
     z-index: 1;
+    font-size: 24px;
   }
   button.prev {
     left: 0;
@@ -119,29 +122,29 @@
       }
     }, 1000);
 
-    // Slider logic
+    // Alternative slider logic
     if (document.querySelector('.slider')) {
-      let index = 0;
-      const blocks = document.querySelectorAll('.announcement-block');
-      const totalBlocks = blocks.length;
+        let index = 0;
+        const blocks = document.querySelectorAll('.announcement-block');
+        const totalBlocks = blocks.length;
 
-      function showSlide(i) {
-        blocks.forEach((block, idx) => {
-          block.style.transform = `translateX(${(idx - i) * 100}%)`;
+        function updateSlider() {
+            blocks.forEach((block, idx) => {
+                block.style.display = idx === index ? 'block' : 'none';
+            });
+        }
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            index = (index - 1 + totalBlocks) % totalBlocks;
+            updateSlider();
         });
-      }
 
-      document.querySelector('.prev').addEventListener('click', () => {
-        index = (index - 1 + totalBlocks) % totalBlocks;
-        showSlide(index);
-      });
+        document.querySelector('.next').addEventListener('click', () => {
+            index = (index + 1) % totalBlocks;
+            updateSlider();
+        });
 
-      document.querySelector('.next').addEventListener('click', () => {
-        index = (index + 1) % totalBlocks;
-        showSlide(index);
-      });
-
-      showSlide(index);
+        updateSlider();
     }
   });
 </script>
