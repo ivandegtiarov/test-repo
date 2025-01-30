@@ -134,7 +134,11 @@
         "show_blocks": true,
         "show_counter": true,
         "background_color": "#1a1a3d",
-        "text_color": "#ffffff"
+        "text_color": "#ffffff",
+        "countdown_text": "Time left:",
+        "countdown_date": "2023-12-31",
+        "padding": "20px",
+        "enable_slider": false
       },
       "blocks": {
         "block1": {
@@ -155,9 +159,9 @@
     }
   },
   "order": [
-    "announcement-bar",
+    "maison-announcement-bar",
     "main",
     "related-products",
-    "maison-announcement-bar"
+    "announcement-bar"
   ]
 }

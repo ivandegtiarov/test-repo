@@ -1,7 +1,7 @@
 <!-- announcement-bar.liquid -->
 <div class="announcement-bar" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};">
   {% if section.settings.show_blocks %}
-    <div class="announcement-blocks">
+    <div class="announcement-blocks {% if section.settings.enable_slider %}slider{% endif %}">
       {% for block in section.blocks %}
         <div class="announcement-block">
           {% if block.settings.image %}
@@ -32,6 +32,7 @@
     display: flex;
     justify-content: center;
     gap: 10px;
+    border-bottom: 1px solid #ccc;
   }
   .announcement-block {
     display: flex;
@@ -39,6 +40,20 @@
   }
   .countdown-timer {
     margin-top: 10px;
+    font-size: 1.2em;
+  }
+  .slider {
+    overflow: hidden;
+    position: relative;
+  }
+  .slider .announcement-block {
+    min-width: 100%;
+    transition: transform 0.5s ease;
+  }
+  @media (max-width: 768px) {
+    .announcement-blocks {
+      flex-direction: column;
+    }
   }
 </style>
 
@@ -74,6 +89,24 @@
         document.querySelector('.timer').innerText = "EXPIRED";
       }
     }, 1000);
+
+    // Slider logic
+    if (document.querySelector('.slider')) {
+      let index = 0;
+      const blocks = document.querySelectorAll('.announcement-block');
+      const totalBlocks = blocks.length;
+
+      function showSlide(i) {
+        blocks.forEach((block, idx) => {
+          block.style.transform = `translateX(${(idx - i) * 100}%)`;
+        });
+      }
+
+      setInterval(() => {
+        index = (index + 1) % totalBlocks;
+        showSlide(index);
+      }, 3000);
+    }
   });
 </script>
 
@@ -92,6 +125,12 @@
       "id": "show_counter",
       "label": "Show Countdown Timer",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider",
+      "label": "Enable Slider",
+      "default": false
     },
     {
       "type": "color",
