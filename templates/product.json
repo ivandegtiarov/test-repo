@@ -121,13 +121,13 @@
         "block1": {
           "type": "block",
           "settings": {
-            "text": "Benefit 1",
+            "text": "Benefit 1"
           }
         },
         "block2": {
           "type": "block",
           "settings": {
-            "text": "Benefit 2",
+            "text": "Benefit 2"
           }
         }
       }
