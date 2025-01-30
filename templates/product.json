@@ -106,8 +106,8 @@
         "padding": "20px",
         "background_color": "#000033"
       },
-      "blocks": [
-        {
+      "blocks": {
+        "banner_item_1": {
           "type": "banner_item",
           "settings": {
             "image": "placeholder.jpg",
@@ -117,8 +117,38 @@
             "image_size": "100px"
           }
         }
-      ]
+      }
+    },
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "show_blocks": true,
+        "show_counter": true,
+        "background_color": "#1a1a3d",
+        "text_color": "#ffffff"
+      },
+      "blocks": {
+        "block1": {
+          "type": "block",
+          "settings": {
+            "text": "Benefit 1",
+            "image": "path/to/image1.jpg"
+          }
+        },
+        "block2": {
+          "type": "block",
+          "settings": {
+            "text": "Benefit 2",
+            "image": "path/to/image2.jpg"
+          }
+        }
+      }
     }
   },
-  "order": ["main", "related-products", "maison-announcement-bar"]
+  "order": [
+    "announcement-bar",
+    "main",
+    "related-products",
+    "maison-announcement-bar"
+  ]
 }
