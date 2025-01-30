@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -98,27 +107,12 @@
     },
     "maison-announcement-bar": {
       "type": "maison-announcement-bar",
-      "settings": {
-        "enable_slider": false,
-        "enable_countdown": false,
-        "countdown_text": "Time left:",
-        "countdown_date": "2023-12-31",
-        "padding": "20px",
-        "background_color": "#000033"
-      },
-      "blocks": [
-        {
-          "type": "banner_item",
-          "settings": {
-            "image": "placeholder.jpg",
-            "text": "Benefit",
-            "text_size": "16px",
-            "text_color": "#FFFFFF",
-            "image_size": "100px"
-          }
-        }
-      ]
+      "settings": {}
     }
   },
-  "order": ["main", "related-products", "maison-announcement-bar"]
+  "order": [
+    "main",
+    "related-products",
+    "maison-announcement-bar"
+  ]
 }
