@@ -2,6 +2,7 @@
 <div class="announcement-bar" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};">
   {% if section.settings.show_blocks %}
     <div class="announcement-blocks {% if section.settings.enable_slider %}slider{% endif %}">
+      <button class="prev">&#10094;</button>
       {% for block in section.blocks %}
         <div class="announcement-block">
           {% if block.settings.image %}
@@ -10,6 +11,7 @@
           <span>{{ block.settings.text }}</span>
         </div>
       {% endfor %}
+      <button class="next">&#10095;</button>
     </div>
   {% endif %}
 
@@ -37,6 +39,16 @@
   .announcement-block {
     display: flex;
     align-items: center;
+    position: relative;
+  }
+  .announcement-block:not(:last-child)::after {
+    content: '';
+    width: 1px;
+    height: 50%;
+    background-color: #ccc;
+    position: absolute;
+    right: 0;
+    top: 25%;
   }
   .countdown-timer {
     margin-top: 10px;
@@ -49,6 +61,23 @@
   .slider .announcement-block {
     min-width: 100%;
     transition: transform 0.5s ease;
+  }
+  button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  button.prev {
+    left: 0;
+  }
+  button.next {
+    right: 0;
   }
   @media (max-width: 768px) {
     .announcement-blocks {
@@ -102,10 +131,17 @@
         });
       }
 
-      setInterval(() => {
+      document.querySelector('.prev').addEventListener('click', () => {
+        index = (index - 1 + totalBlocks) % totalBlocks;
+        showSlide(index);
+      });
+
+      document.querySelector('.next').addEventListener('click', () => {
         index = (index + 1) % totalBlocks;
         showSlide(index);
-      }, 3000);
+      });
+
+      showSlide(index);
     }
   });
 </script>
