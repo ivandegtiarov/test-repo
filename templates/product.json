@@ -107,7 +107,6 @@
     },
     "maison-announcement-bar": {
       "type": "maison-announcement-bar",
-<<<<<<< HEAD
       "settings": {
         "enable_slider": false,
         "enable_countdown": false,
@@ -157,12 +156,6 @@
   },
   "order": [
     "announcement-bar",
-=======
-      "settings": {}
-    }
-  },
-  "order": [
->>>>>>> d6a0a1167b4df0c934bda94fbfc846105beb7be6
     "main",
     "related-products",
     "maison-announcement-bar"
