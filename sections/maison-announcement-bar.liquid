@@ -1,0 +1,151 @@
+<div class="banner-section">
+  {% if section.settings.enable_slider %}
+    <div class="slider">
+      {% for block in section.blocks %}
+        <div class="slide">
+          <img src="{{ block.settings.image | placeholder: 'placeholder.jpg' }}" alt="Banner Image" style="width: {{ block.settings.image_size }};">
+          <p style="color: {{ block.settings.text_color }}; font-size: {{ block.settings.text_size }};">
+            {{ block.settings.text }}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="static-banner">
+      {% for block in section.blocks %}
+        <div class="banner-item" style="border-bottom: {% if section.blocks.size > 1 %}1px solid #ccc{% endif %};">
+          <img src="{{ block.settings.image | placeholder: 'placeholder.jpg' }}" alt="Banner Image" style="width: {{ block.settings.image_size }};">
+          <p style="color: {{ block.settings.text_color }}; font-size: {{ block.settings.text_size }};">
+            {{ block.settings.text }}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if section.settings.enable_countdown %}
+    <div class="countdown-timer" data-end-date="{{ section.settings.countdown_date }}">
+      <p>{{ section.settings.countdown_text }}</p>
+      <span class="timer"></span>
+    </div>
+  {% endif %}
+</div>
+
+<style>
+  .banner-section {
+    padding: {{ section.settings.padding }};
+    background-color: {{ section.settings.background_color }};
+  }
+  .slider, .static-banner {
+    display: flex;
+    overflow: hidden;
+  }
+  .slide, .banner-item {
+    flex: 1;
+    text-align: center;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if ({{ section.settings.enable_countdown }}) {
+      var countdownElement = document.querySelector('.countdown-timer .timer');
+      var endDate = new Date(countdownElement.parentElement.getAttribute('data-end-date')).getTime();
+      var countdownInterval = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = endDate - now;
+        if (distance < 0) {
+          clearInterval(countdownInterval);
+          countdownElement.innerHTML = "EXPIRED";
+        } else {
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        }
+      }, 1000);
+    }
+  });
+</script>
+
+{
+  "name": "Banner Section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_slider",
+      "label": "Enable Slider"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_countdown",
+      "label": "Enable Countdown Timer"
+    },
+    {
+      "type": "text",
+      "id": "countdown_text",
+      "label": "Countdown Text",
+      "default": "Time left:"
+    },
+    {
+      "type": "date",
+      "id": "countdown_date",
+      "label": "Countdown End Date"
+    },
+    {
+      "type": "text",
+      "id": "padding",
+      "label": "Padding",
+      "default": "20px"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000033"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner_item",
+      "name": "Banner Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "text_size",
+          "label": "Text Size",
+          "default": "16px"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "text",
+          "id": "image_size",
+          "label": "Image Size",
+          "default": "100px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom"
+    }
+  ]
+}
