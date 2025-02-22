@@ -62,10 +62,62 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "maison-feature-grid": {
+      "type": "maison-feature-grid",
+      "blocks": {
+        "feature_item_1": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" fill=\"none\"><path d=\"M26.25 25.1651C26.0799 25.3554 25.9041 25.5414 25.7228 25.7228C23.1441 28.3014 19.6468 29.75 16 29.75C12.3533 29.75 8.85591 28.3014 6.27729 25.7228C3.69865 23.1441 2.25 19.6468 2.25 16C2.25 12.3533 3.69865 8.85591 6.27729 6.27729C8.85591 3.69866 12.3533 2.25 16 2.25C19.6468 2.25 23.1441 3.69866 25.7228 6.27729C25.9041 6.45866 26.0799 6.6446 26.25 6.83481C25.0003 6.28939 23.6401 6 22.2501 6C19.5979 6 17.0544 7.05356 15.179 8.92894C13.3036 10.8043 12.2501 13.3478 12.2501 16C12.2501 18.6521 13.3036 21.1957 15.179 23.0711C17.0544 24.9464 19.5979 26 22.2501 26C23.6401 26 25.0003 25.7106 26.25 25.1651Z\" stroke=\"black\" stroke-width=\"1.5\"></path><path d=\"M22.25 12.25H28.5V12.7361L23.5 19.2639V19.75H29.75\" stroke=\"black\" stroke-width=\"1.5\"></path></svg>",
+            "title": "Deep Sleep Analysis",
+            "description": "Comprehensive tracking of sleep stages and patterns for optimal rest."
+          }
+        },
+        "feature_item_2": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" fill=\"none\"><path d=\"M9.59253 13.9729H12.5963L14.0429 11.2986L16.824 16.4971L18.9536 13.9728H21.8634\" stroke=\"black\" stroke-width=\"1.5\"></path><path d=\"M15.3912 5.73751L15.9999 6.34608L16.6084 5.73751C19.501 2.84498 24.1906 2.84498 27.0831 5.73751C29.9756 8.63002 29.9756 13.3197 27.0831 16.2123L15.9999 27.2955L4.91652 16.2123C2.024 13.3197 2.024 8.63002 4.91652 5.73751C7.80904 2.84498 12.4987 2.84498 15.3912 5.73751Z\" stroke=\"black\" stroke-width=\"1.5\"></path></svg>",
+            "title": "Continuous Health Monitoring",
+            "description": "Real-time heart rate and blood oxygen tracking throughout your day."
+          }
+        },
+        "feature_item_3": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" fill=\"none\"><path d=\"M7.25 16H24.75\" stroke=\"black\" stroke-width=\"1.5\"></path><path d=\"M7.25 21H19.75\" stroke=\"black\" stroke-width=\"1.5\"></path><path d=\"M29.75 4.75H2.25V27.25H29.75V4.75Z\" stroke=\"black\" stroke-width=\"1.5\"></path><path d=\"M29.75 9.75H2.25\" stroke=\"black\" stroke-width=\"1.5\"></path></svg>",
+            "title": "Smart Recovery Guidance",
+            "description": "Personalized readiness scores to optimize your daily activities."
+          }
+        },
+        "feature_item_4": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" fill=\"none\"><path d=\"M2.25 6H26V11H29.75V21H26V26H2.25V6Z\" stroke=\"black\" stroke-width=\"1.5\"></path><path d=\"M15.375 10.0625L11 15.9816H17.25L12.875 21.9375\" stroke=\"black\" stroke-width=\"1.5\"></path></svg>",
+            "title": "Extended Performance",
+            "description": "10-day battery life with quick 120-minute wireless charging."
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_1",
+        "feature_item_2",
+        "feature_item_3",
+        "feature_item_4"
+      ],
+      "settings": {
+        "background_color": "#f5f5f5",
+        "accent_color": "#ff832d",
+        "subtitle": "Your Health, Refined",
+        "heading": "Discover Next-Generation Wellness Tracking",
+        "description": "Transform your approach to health with the GARD PRO smart ring - where advanced technology meets elegant design.",
+        "image": "shopify:\/\/shop_images\/placeholder.png"
+      }
     }
   },
   "order": [
     "slideshow",
-    "featured-collection-0"
+    "featured-collection-0",
+    "maison-feature-grid"
   ]
 }
